@@ -2492,11 +2492,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Z:\\ToDoList\\PrimerProyecto\\PrimerProyecto.csproj",
+      "projectUniqueName": "C:\\Users\\49373638\\Downloads\\ToDoList\\PrimerProyecto.csproj",
       "projectName": "PrimerProyecto",
-      "projectPath": "Z:\\ToDoList\\PrimerProyecto\\PrimerProyecto.csproj",
+      "projectPath": "C:\\Users\\49373638\\Downloads\\ToDoList\\PrimerProyecto.csproj",
       "packagesPath": "C:\\Users\\49373638\\.nuget\\packages\\",
-      "outputPath": "Z:\\ToDoList\\PrimerProyecto\\obj\\",
+      "outputPath": "C:\\Users\\49373638\\Downloads\\ToDoList\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

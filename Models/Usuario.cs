@@ -1,3 +1,4 @@
+using ToDoList.Models;
 namespace ToDoList.Models
 {
     public class Usuario

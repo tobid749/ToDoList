@@ -1,20 +1,53 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using PrimerProyecto.Models;
+using ToDoList.Models;
 
-namespace PrimerProyecto.Controllers;
-
-public class HomeController : Controller
+namespace ToDoList.Controllers
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    public class HomeController : Controller
     {
-        _logger = logger;
-    }
+        public IActionResult VerTareas()
+        {
+            int idUsuario = (int)HttpContext.Session.GetInt32("Id");
+            List<Tarea> tareas = BD.DevolverTareas(idUsuario);
+            return View(tareas);
+        }
 
-    public IActionResult Index()
-    {
-        return View();
+        public IActionResult CrearTarea()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CrearTareaGuardar(Tarea tarea)
+        {
+            tarea.IdUsuarios = (int)HttpContext.Session.GetInt32("Id");
+            BD.CrearTarea(tarea);
+            return RedirectToAction("VerTareas");
+        }
+
+        public IActionResult EditarTarea(int id)
+        {
+            Tarea tarea = BD.DevolverTarea(id);
+            return View(tarea);
+        }
+
+        [HttpPost]
+        public IActionResult EditarTareaGuardar(Tarea tarea)
+        {
+            BD.ModificarTarea(tarea);
+            return RedirectToAction("VerTareas");
+        }
+
+        public IActionResult EliminarTarea(int id)
+        {
+            BD.EliminarTarea(id);
+            return RedirectToAction("VerTareas");
+        }
+
+        public IActionResult FinalizarTarea(int id)
+        {
+            BD.FinalizarTarea(id);
+            return RedirectToAction("VerTareas");
+        }
     }
 }
